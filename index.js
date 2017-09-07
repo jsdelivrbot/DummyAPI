@@ -9,8 +9,8 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
+app.get('/user/:userName', function(request, response) {
+  response.json({"name": request.params.userName, "imageURL": "http://lorempixel.com/200/200/sports/"})
 });
 
 app.listen(app.get('port'), function() {
